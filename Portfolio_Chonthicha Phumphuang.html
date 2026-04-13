@@ -41,10 +41,10 @@
     .hero-name{font-size:54px;font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-1px;margin-bottom:1rem}
     .hero-name .highlight{color:var(--sky)}
     .hero-title{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:2rem;font-weight:400}
-    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem}
-    .btn-primary{background:var(--navy);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;text-decoration:none;display:inline-flex;align-items:center}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--navy);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
     .btn-primary:hover{background:var(--blue)}
-    .btn-outline{background:transparent;color:var(--navy);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;border:1.5px solid var(--border);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center}
+    .btn-outline{background:transparent;color:var(--navy);padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;border:1.5px solid var(--border);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
     .btn-outline:hover{border-color:var(--sky);color:var(--sky)}
 
     /* HERO CARD */
@@ -76,37 +76,31 @@
     .section-title{font-size:32px;font-weight:800;color:var(--navy);letter-spacing:-0.5px;margin-bottom:2.5rem}
 
     /* SKILLS */
-    /* SKILLS MARQUEE */
-    .skills-marquee-wrap{overflow:hidden;position:relative;padding:0.5rem 0;margin-bottom:1rem}
-    .skills-marquee-wrap::before,.skills-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
-    .skills-marquee-wrap::before{left:0;background:linear-gradient(to right,#fff 0%,transparent 100%)}
-    .skills-marquee-wrap::after{right:0;background:linear-gradient(to left,#fff 0%,transparent 100%)}
-    .skills-track{display:flex;gap:12px;width:max-content;animation:marquee 28s linear infinite}
-    .skills-track-reverse{animation-direction:reverse;animation-duration:22s}
-    .skills-marquee-wrap:hover .skills-track{animation-play-state:paused}
-    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    .skill-tag{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--border);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap;transition:border-color .2s,color .2s,transform .2s;cursor:default}
-    .skill-tag:hover{border-color:var(--sky);color:var(--sky);transform:translateY(-2px)}
-    .skill-tag-icon{width:20px;height:20px;object-fit:contain;display:inline-block;flex-shrink:0}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .skill-card{border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;transition:border-color .2s,transform .2s}
+    .skill-card:hover{border-color:var(--sky);transform:translateY(-2px)}
+    .skill-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px}
+    .icon-node{background:#e8f7e8}
+    .icon-py{background:#fff3cd}
+    .icon-db{background:#e8f2fc}
+    .icon-docker{background:#e0f0ff}
+    .icon-api{background:#f0e8fc}
+    .icon-git{background:#fff0e8}
+    .skill-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+    .skill-tech{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;line-height:1.6}
 
     /* PROJECTS */
     .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
     .project-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer;text-decoration:none;display:block;color:inherit}
     .project-card:hover{border-color:var(--sky);transform:translateY(-3px)}
     .project-card:hover .project-gh{opacity:1;transform:translateX(0)}
-    /* Project image area */
-    .project-img-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--light)}
-    .project-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-    .project-card:hover .project-img-wrap img{transform:scale(1.04)}
-    .project-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--light) 0%,#d0e8f8 100%);font-size:48px}
-    /* Project content */
-    .project-header{padding:1.25rem 1.5rem 0.5rem;background:#fff;position:relative}
+    .project-header{padding:1.5rem;background:var(--light);border-bottom:1px solid var(--border);position:relative}
     .project-header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
     .project-tag{display:inline-block;background:var(--sky);color:#fff;font-size:10px;font-weight:500;padding:3px 10px;border-radius:100px;font-family:'DM Mono',monospace}
     .project-gh{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--sky);font-family:'DM Mono',monospace;font-weight:500;opacity:0;transform:translateX(6px);transition:all .2s}
-    .project-name{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+    .project-name{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
     .project-desc{font-size:13px;color:var(--muted);line-height:1.6}
-    .project-body{padding:.75rem 1.5rem 1.25rem;border-top:1px solid var(--border)}
+    .project-body{padding:1.25rem 1.5rem}
     .tech-chips{display:flex;gap:6px;flex-wrap:wrap}
     .chip{background:var(--light);border:1px solid var(--border);color:var(--blue);font-size:11px;padding:3px 10px;border-radius:6px;font-family:'DM Mono',monospace;font-weight:500}
 
@@ -118,26 +112,6 @@
     .exp-role{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:3px}
     .exp-company{font-size:13px;color:var(--sky);font-weight:500;margin-bottom:.75rem}
     .exp-detail{font-size:13px;color:var(--muted);line-height:1.7}
-
-    /* CERTIFICATES */
-    .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .cert-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s;background:#fff}
-    .cert-card:hover{border-color:var(--sky);transform:translateY(-3px)}
-    .cert-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:40px}
-    .cert-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-    .cert-card:hover .cert-img-wrap img{transform:scale(1.04)}
-    .cert-info{padding:1rem 1.25rem}
-    .cert-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.25rem;line-height:1.4}
-    .cert-issuer{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace}
-    /* Modal */
-    .cert-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:999;align-items:center;justify-content:center;padding:1.5rem}
-    .cert-modal-overlay.open{display:flex}
-    .cert-modal{background:#fff;border-radius:16px;max-width:720px;width:100%;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.25)}
-    .cert-modal img{width:100%;display:block}
-    .cert-modal-body{padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
-    .cert-modal-title{font-size:16px;font-weight:700;color:var(--navy)}
-    .cert-modal-close{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:border-color .2s;flex-shrink:0}
-    .cert-modal-close:hover{border-color:var(--sky)}
 
     /* CONTACT */
     .contact-section{background:var(--navy);margin:0;padding:4rem 3rem}
@@ -177,8 +151,6 @@
       .projects-grid{grid-template-columns:1fr}
 
       .exp-item{grid-template-columns:110px 1fr;gap:1rem}
-
-      .cert-grid{grid-template-columns:repeat(2,1fr)}
 
       .contact-inner{grid-template-columns:1fr;gap:2.5rem}
       .contact-section{padding:3rem 1.5rem}
@@ -243,8 +215,6 @@
     <a href="#about">about</a>
     <a href="#skills">skills</a>
     <a href="#projects">projects</a>
-    <a href="#certificates">certificates</a>
-    <a href="#contact">contact</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -255,8 +225,6 @@
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#skills" onclick="closeMenu()">Skills</a>
   <a href="#projects" onclick="closeMenu()">Projects</a>
-  <a href="#certificates" onclick="closeMenu()">Certificates</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <div style="max-width:1200px;margin:0 auto">
@@ -268,12 +236,6 @@
       </div>
       <h1 class="hero-name">Chonthicha<br><span class="highlight">Phumphuang</span></h1>
       <p class="hero-title">นักศึกษาวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์และปัญญาประดิษฐ์ จบใหม่ มีความสนใจและมุ่งเน้นด้านการพัฒนา Backend / Frontend โดยมีพื้นฐานด้านการออกแบบระบบ การพัฒนา API และการจัดการฐานข้อมูล สามารถพัฒนา Web Application โดยใช้เทคโนโลยีอย่าง Node.js, Express</p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="#projects">ดูผลงาน</a>
-        <a class="btn-outline" href="#" download>Resume</a>
-        <a class="btn-outline" href="Transcript_Chonthicha Phumphuang.pdf" target="_blank">Transcript</a>
-        <a class="btn-outline" href="#contact">Contact</a>
-      </div>
     </div>
     <div class="hero-card">
       <div class="card-header">
@@ -286,7 +248,7 @@
       </div>
       <div class="code-line c-bracket">{</div>
       <div class="code-line" style="padding-left:1.2rem"><span class="c-key">"name"</span><span style="color:rgba(255,255,255,.4)">: </span><span class="c-str">"Chonthicha Phumphuang"</span>,</div>
-      <div class="code-line" style="padding-left:1.2rem"><span class="c-key">"role"</span><span style="color:rgba(255,255,255,.4)">: </span><span class="c-str">"Junior Developer - Backend / Frontend"</span>,</div>
+      <div class="code-line" style="padding-left:1.2rem"><span class="c-key">"role"</span><span style="color:rgba(255,255,255,.4)">: </span><span class="c-str">"React Native Developer"</span>,</div>
       <div class="code-line" style="padding-left:1.2rem"><span class="c-key">"level"</span><span style="color:rgba(255,255,255,.4)">: </span><span class="c-str">"Fresh Graduate"</span>,</div>
       <div class="code-line" style="padding-left:1.2rem"><span class="c-key">"stack"</span><span style="color:rgba(255,255,255,.4)">: </span><span class="c-bracket">[</span></div>
       <div class="code-line" style="padding-left:2.4rem"><span class="c-str">"Node.js"</span>, <span class="c-str">"Python"</span>,</div>
@@ -318,54 +280,46 @@
 
 <div class="section" id="skills">
   <p class="section-label">expertise</p>
-  <h2 class="section-title">Technical Skills</h2>
+  <h2 class="section-title">Tech Stack</h2>
+  <div class="skills-grid">
 
-  <!-- Row 1 — left to right -->
-  <div class="skills-marquee-wrap">
-    <div class="skills-track">
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js">Node.js</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/express/000000" alt="Express.js">Express.js</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/python/3776AB" alt="Python">Python</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI">FastAPI</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB">MongoDB</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">Docker</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/git/F05032" alt="Git">Git</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/github/181717" alt="GitHub">GitHub</span>
-      <!-- duplicate for seamless loop -->
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js">Node.js</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/express/000000" alt="Express.js">Express.js</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/python/3776AB" alt="Python">Python</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI">FastAPI</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB">MongoDB</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">Docker</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/git/F05032" alt="Git">Git</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/github/181717" alt="GitHub">GitHub</span>
+    <div class="skill-card">
+      <div class="skill-icon icon-node">🟩</div>
+      <div class="skill-name">Node.js / Express</div>
+      <div class="skill-tech">REST API · Backend Development</div>
     </div>
-  </div>
 
-  <!-- Row 2 — right to left -->
-  <div class="skills-marquee-wrap">
-    <div class="skills-track skills-track-reverse">
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React">React</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS">Tailwind CSS</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">HTML / CSS</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">JavaScript</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/swagger/85EA2D" alt="REST API">REST API</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/openai/412991" alt="OpenRouter">OpenRouter API</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/render/46E3B7" alt="Render">Render</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">VS Code</span>
-      <!-- duplicate -->
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/react/61DAFB" alt="React">React</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS">Tailwind CSS</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">HTML / CSS</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">JavaScript</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/swagger/85EA2D" alt="REST API">REST API</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/anthropic/191919" alt="OpenRouter">OpenRouter API</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.simpleicons.org/render/46E3B7" alt="Render">Render</span>
-      <span class="skill-tag"><img class="skill-tag-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">VS Code</span>
+    <div class="skill-card">
+      <div class="skill-icon icon-py">🐍</div>
+      <div class="skill-name">Python / FastAPI</div>
+      <div class="skill-tech">API Development · Data Processing</div>
     </div>
-  </div>
 
+    <div class="skill-card">
+      <div class="skill-icon icon-db">🗄️</div>
+      <div class="skill-name">Database</div>
+      <div class="skill-tech">MongoDB · Basic CRUD</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon icon-docker">🐳</div>
+      <div class="skill-name">Tools & DevOps</div>
+      <div class="skill-tech">Docker · Git · GitHub</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon icon-api">⚡</div>
+      <div class="skill-name">API Design</div>
+      <div class="skill-tech">RESTful API · JSON · Postman</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon icon-git">🔐</div>
+      <div class="skill-name">Authentication</div>
+      <div class="skill-tech">JWT · Basic Auth</div>
+    </div>
+
+  </div>
 </div>
 
 <div class="section" style="padding-top:0" id="projects">
@@ -373,9 +327,6 @@
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
     <a class="project-card" href="https://github.com/txnfern/Strawberryfarm_Web" target="_blank">
-      <div class="project-img-wrap">
-        <img src="strawberryfarm-web.png" alt="Strawberry Farm">
-      </div>
       <div class="project-header">
         <div class="project-header-top">
           <div class="project-tag">NODE.JS · REACT · MONGODB</div>
@@ -395,9 +346,6 @@
       </div>
     </a>
     <a class="project-card" href="https://github.com/txnfern/chatbot-platform" target="_blank">
-      <div class="project-img-wrap">
-        <img src="chatbot.png" alt="Chatbot Platform">
-      </div>
       <div class="project-header">
         <div class="project-header-top">
           <div class="project-tag">NODE.JS · MARIADB</div>
@@ -410,7 +358,7 @@
         <div class="tech-chips">
           <span class="chip">Node.js</span>
           <span class="chip">Express.js</span>
-          <span class="chip">MongoDB</span>
+          <span class="chip">MariaDB</span>
           <span class="chip">REST API</span>
           <span class="chip">Coin System</span>
         </div>
@@ -444,38 +392,6 @@
 
 </div>
 
-<!-- CERTIFICATE MODAL -->
-<div class="cert-modal-overlay" id="certModal" onclick="closeCert(event)">
-  <div class="cert-modal">
-    <img id="certModalImg" src="" alt="Certificate">
-    <div class="cert-modal-body">
-      <div class="cert-modal-title" id="certModalTitle"></div>
-      <button class="cert-modal-close" onclick="closeCertBtn()">✕</button>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-inner">
-    <div>
-      <p class="section-label" style="color:rgba(255,255,255,.4)">get in touch</p>
-      <h2 class="contact-title">Contact Me</h2>
-      <p class="contact-sub">พร้อมรับโอกาสใหม่ๆ และพร้อมเรียนรู้สิ่งใหม่ๆเสมอ โปรดพิจารณาเด็กจบใหม่คนนี้ด้วยนะคะ</p>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:chonthichaphumphung@gmail.com">
-          <div class="contact-link-icon">✉️</div>
-          chonthichaphumphung@gmail.com
-        </a>
-        <a class="contact-link" href="https://github.com/txnfern" target="_blank">
-          <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
-          github.com/txnfern
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer>
   <p>© 2026 Chonthicha Phumphuang</p>
   <p> · Bangkok, Thailand</p>
@@ -491,22 +407,6 @@
   function closeMenu() {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
-  }
-  function openCert(id, title) {
-    const imgs = { cert1:'', cert2:'', cert3:'' };
-    const img = document.getElementById('certModalImg');
-    img.src = imgs[id] || '';
-    img.style.display = imgs[id] ? 'block' : 'none';
-    document.getElementById('certModalTitle').textContent = title;
-    document.getElementById('certModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeCertBtn() {
-    document.getElementById('certModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeCert(e) {
-    if (e.target === document.getElementById('certModal')) closeCertBtn();
   }
 </script>
 
