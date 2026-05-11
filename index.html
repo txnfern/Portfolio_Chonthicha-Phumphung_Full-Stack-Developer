@@ -467,6 +467,35 @@
 
 </div>
 
+<!-- CERTIFICATES -->
+<div class="section" style="padding-top:0" id="certificates">
+  <p class="section-label">achievements</p>
+  <h2 class="section-title">Certificates</h2>
+  <div class="cert-grid" style="grid-template-columns:repeat(2,1fr)">
+
+    <div class="cert-card" onclick="openCert('cert1','Getting Started as C# Developer')">
+      <div class="cert-img-wrap">
+        <img src=".\Getting Started as C- Developer.jpg" alt="Getting Started as C# Developer">
+      </div>
+      <div class="cert-info">
+        <div class="cert-name">Getting Started as C# Developer</div>
+        <div class="cert-issuer">FutureSkill · 2026</div>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('cert2','Advanced For C# Programming')">
+      <div class="cert-img-wrap">
+        <img src=".\Advanced For C- Programming.jpg" alt="Advanced For C# Programming">
+      </div>
+      <div class="cert-info">
+        <div class="cert-name">Advanced For C# Programming</div>
+        <div class="cert-issuer">FutureSkill · 2026</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- CERTIFICATE MODAL -->
 <div class="cert-modal-overlay" id="certModal" onclick="closeCert(event)">
   <div class="cert-modal">
@@ -520,10 +549,17 @@
     mobileMenu.classList.remove('open');
   }
   function openCert(id, title) {
-    const imgs = { cert1:'', cert2:'', cert3:'' };
+    const imgs = {
+      cert1: '.\Getting Started as C- Developer.jpg',
+      cert2: '.\Advanced For C- Programming.jpg'
+    };
+    // Use the same src as the card image directly
+    const cardImgs = document.querySelectorAll('.cert-card');
+    const certEl = [...cardImgs].find(el => el.getAttribute('onclick')?.includes(id));
+    const srcFromCard = certEl?.querySelector('img')?.src;
     const img = document.getElementById('certModalImg');
-    img.src = imgs[id] || '';
-    img.style.display = imgs[id] ? 'block' : 'none';
+    img.src = srcFromCard || imgs[id] || '';
+    img.style.display = (srcFromCard || imgs[id]) ? 'block' : 'none';
     document.getElementById('certModalTitle').textContent = title;
     document.getElementById('certModal').classList.add('open');
     document.body.style.overflow = 'hidden';
